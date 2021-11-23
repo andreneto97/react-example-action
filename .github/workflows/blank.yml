@@ -19,7 +19,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    permissions:
+      pull-requests: write
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -31,6 +32,23 @@ jobs:
         uses: andreneto97/docker-action@499243f9584b07c50ec2a1ae86b9f413a7f02dd2
         with:
           who-to-greet: 'Mona the Octocat'
+          
+      - name: comment on PR with Binder link
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            var PR_HEAD_USERREPO = process.env.PR_HEAD_USERREPO;
+            var PR_HEAD_REF = process.env.PR_HEAD_REF;
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/${PR_HEAD_USERREPO}/${PR_HEAD_REF}) :point_left: Launch a binder notebook on branch _${PR_HEAD_USERREPO}/${PR_HEAD_REF}_`
+            })
+        env:
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_HEAD_USERREPO: ${{ github.event.pull_request.head.repo.full_name }}
           
       - name: Get Pull Request ID
         run: |
