@@ -43,7 +43,7 @@ jobs:
       - name: test
         with:
           github-token: ${{ secrets.MY_PAT }}
-          script: |
+          run: |
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
