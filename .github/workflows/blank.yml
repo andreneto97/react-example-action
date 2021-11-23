@@ -31,12 +31,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Hello world action step
-        id: hello
-        uses: andreneto97/docker-action@85c99325e3605dad7675d4a969720bd409fed253
-        with:
-          who-to-greet: 'Mona the Octocat'
-          
       - name: Create a label
         uses: actions/github-script@v5
         with: 
@@ -48,6 +42,13 @@ jobs:
             repo: context.repo.repo,
             labels: ['TESTEEEE']
             })
+      
+      - name: Hello world action step
+        id: hello
+        uses: andreneto97/docker-action@10b75e3d383a3bae9eea2c137b26f5479bbcd8ca
+        with:
+          who-to-greet: 'Mona the Octocat'
+          token: ${{ secrets.GH_PATS }}
             
       - name: Write a comment
         uses: actions/github-script@v5
