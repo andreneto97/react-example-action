@@ -28,6 +28,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       
+      - name: python
+        uses: actions/setup-python@v2
+      
       - name: Hello world action step
         id: hello
         uses: andreneto97/docker-action@d9a89cebb0922762c10a0ed08cbc5b02e40fc3df
