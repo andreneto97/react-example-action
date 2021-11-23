@@ -39,7 +39,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Hello world!" > report.md
-          cml-send-comment report.md
+          -r cml-send-comment report.md
           
       # Runs a single command using the runners shell
       - name: Run a one-line script
