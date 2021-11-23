@@ -29,9 +29,16 @@ jobs:
       
       - name: Hello world action step
         id: hello
-        uses: andreneto97/docker-action@0b6c2cc83c07bc5a99f0265b8d89bc780ff4d8eb
+        uses: andreneto97/docker-action@d9a89cebb0922762c10a0ed08cbc5b02e40fc3df
         with:
           who-to-greet: 'Mona the Octocat'
+          
+      - name: Generate report
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Hello world!" > report.md
+          cml-send-comment report.md
           
       # Runs a single command using the runners shell
       - name: Run a one-line script
