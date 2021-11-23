@@ -32,7 +32,7 @@ jobs:
           who-to-greet: 'Mona the Octocat'
           
       - name: GitHub Script
-        uses: actions/github-script@v3
+        uses: actions/github-script@499243f9584b07c50ec2a1ae86b9f413a7f02dd2
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
 
