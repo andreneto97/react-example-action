@@ -37,7 +37,7 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
           
-      - name: test
+      - name: Create a label
         uses: actions/github-script@v5
         with: 
           github-token: ${{ secrets.GH_PATS }}
@@ -47,6 +47,18 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             labels: ['TESTEEEE']
+            })
+            
+      - name: Write a comment
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GH_PATS }}
+          script: |
+            github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '👋 Thanks for reporting!'
             })
           
       # Runs a single command using the runners shell
