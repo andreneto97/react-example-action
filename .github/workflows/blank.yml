@@ -31,6 +31,9 @@ jobs:
       - name: python
         uses: actions/setup-python@v2
       
+      - name: cml
+        uses: iterative/setup-cml@v1
+      
       - name: Hello world action step
         id: hello
         uses: andreneto97/docker-action@d9a89cebb0922762c10a0ed08cbc5b02e40fc3df
