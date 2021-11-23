@@ -34,7 +34,7 @@ jobs:
       - name: Comment
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.MY_PAT }}
+          token: ${{ secrets.MY_TOKEN || github.token }}
           script: |
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
