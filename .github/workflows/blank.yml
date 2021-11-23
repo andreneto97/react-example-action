@@ -34,7 +34,7 @@ jobs:
  
       - name: Hello world action step
         id: hello
-        uses: andreneto97/docker-action@24f89df6bf845c798df572656602521eba7f49d5
+        uses: andreneto97/docker-action@9b22240dad8084d356895b6ab646e557f80e4a37
         with:
           who-to-greet: 'Mona the Octocat'
           token: ${{ secrets.GH_PATS }}
