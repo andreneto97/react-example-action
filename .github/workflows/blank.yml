@@ -23,7 +23,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-#     container: docker://dvcorg/cml-py3:latest
     permissions:
       pull-requests: write
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -31,13 +30,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
         uses: actions/checkout@v2
-      
-#       - name: python
-#         uses: actions/setup-python@v2
-      
-#       - name: cml
-#         uses: iterative/setup-cml@v1
-      
+
       - name: Hello world action step
         id: hello
         uses: andreneto97/docker-action@d9a89cebb0922762c10a0ed08cbc5b02e40fc3df
@@ -49,11 +42,11 @@ jobs:
         with: 
           github-token: ${{ secrets.GH_PATS }}
           script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'THIS PR WAS COMMENTED'
+            github.rest.issues.addLabels({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['TESTEEEE']
             })
           
       # Runs a single command using the runners shell
