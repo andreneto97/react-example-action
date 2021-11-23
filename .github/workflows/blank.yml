@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: actions/github-script@v5
+
       
       - name: Hello world action step
         id: hello
@@ -38,7 +40,6 @@ jobs:
 
       - name: Add Comment to Pull Request if Success
         if: ${{ success() }}
-        uses: actions/github-script@v5
         with:
           script: |
             await github.rest.issues.createComment({
@@ -50,7 +51,6 @@ jobs:
             
       - name: Add Comment to Pull Request if Failure
         if: ${{ failure() }}
-        uses: actions/github-script@v5
         with:
           script: |
             await github.rest.issues.createComment({
