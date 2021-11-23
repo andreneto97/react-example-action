@@ -31,17 +31,16 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
           
-      - name: Message success
-        if: ${{ success() }}
-        uses: actions/github-script@v4
+      - name: Comment
+      - uses: actions/github-script@v5
         with:
           script: |
-            github.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: 'Deployment succeeded! ✅',
-            });          
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })      
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
