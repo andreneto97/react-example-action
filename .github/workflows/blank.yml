@@ -31,37 +31,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Create a label
-        uses: actions/github-script@v5
-        with: 
-          github-token: ${{ secrets.GH_PATS }}
-          script: |
-            github.rest.issues.addLabels({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            labels: ['TESTEEEE']
-            })
-      
+ 
       - name: Hello world action step
         id: hello
         uses: andreneto97/docker-action@10b75e3d383a3bae9eea2c137b26f5479bbcd8ca
         with:
           who-to-greet: 'Mona the Octocat'
           token: ${{ secrets.GH_PATS }}
-            
-      - name: Write a comment
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.GH_PATS }}
-          script: |
-            github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: '👋 Thanks for reporting!'
-            })
-          
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
