@@ -31,10 +31,17 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
           
-      - name: Labeler permission    
-        uses: actions/labeler@v3
+      - name: Like pizza
+        uses: actions/github-script@v4
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}" 
+          script: |
+            const {owner, repo} = context.issue
+            github.reactions.createForIssueComment({
+              owner,
+              repo,
+              comment_id: context.payload.comment.id,
+              content: "+1",
+            });    
          
       - name: GitHub Script
         uses: actions/github-script@v5
