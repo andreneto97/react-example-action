@@ -35,11 +35,11 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            const {owner, repo} = context.issue
+            const {owner, repo, id} = context.issue
             github.reactions.createForIssueComment({
               owner,
               repo,
-              comment_id: context.payload.comment,
+              comment_id: context.payload.comment.id,
               content: "+1",
             });    
          
