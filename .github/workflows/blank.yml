@@ -49,11 +49,11 @@ jobs:
         with: 
           github-token: ${{ secrets.GH_PATS }}
           script: |
-            github.rest.issues.addLabels({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            comment: 'The PR is commented'
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'THIS PR WAS COMMENTED'
             })
           
       # Runs a single command using the runners shell
