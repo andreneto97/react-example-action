@@ -27,7 +27,7 @@ jobs:
       
       - name: Hello world action step
         id: hello
-        uses: andreneto97/docker-action@70b1fdffd5029b6a4604e8a2f6d8ac15ef81da44
+        uses: andreneto97/docker-action@ad0b6af20dedcc8b469a998a006cc0536da00799
         with:
           who-to-greet: 'Mona the Octocat'
 
