@@ -41,6 +41,7 @@ jobs:
           who-to-greet: 'Mona the Octocat'
           
       - name: test
+        uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.MY_PAT }}
           run: |
