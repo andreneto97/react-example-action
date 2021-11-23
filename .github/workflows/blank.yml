@@ -39,6 +39,16 @@ jobs:
         uses: andreneto97/docker-action@d9a89cebb0922762c10a0ed08cbc5b02e40fc3df
         with:
           who-to-greet: 'Mona the Octocat'
+      - name: test
+        with:
+          github-token: ${{ secrets.MY_PAT }}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['Triage']
+            })
           
       - name: Generate report
         env:
