@@ -31,6 +31,11 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
           
+      - name: Labeler permission    
+        uses: actions/labeler@v3
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}" 
+         
       - name: GitHub Script
         uses: actions/github-script@v5
         with:
