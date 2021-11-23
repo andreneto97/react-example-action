@@ -21,7 +21,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container: docker://dvcorg/cml-py3:latest
+#     container: docker://dvcorg/cml-py3:latest
     permissions:
       pull-requests: write
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -30,11 +30,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       
-      - name: python
-        uses: actions/setup-python@v2
+#       - name: python
+#         uses: actions/setup-python@v2
       
-      - name: cml
-        uses: iterative/setup-cml@v1
+#       - name: cml
+#         uses: iterative/setup-cml@v1
       
       - name: Hello world action step
         id: hello
@@ -45,7 +45,7 @@ jobs:
       - name: test
         uses: actions/github-script@v5
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.MY_PAT }}
           script: |
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
