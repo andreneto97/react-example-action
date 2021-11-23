@@ -24,6 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Hello world action step
+        id: hello
+        uses: andreneto97@24e705fe48ece5a654d5db505392cee03e75654e
+        with:
+          who-to-greet: 'Mona the Octocat'
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
