@@ -31,18 +31,6 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
           
-      - name: Like pizza
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const {owner, repo, id} = context.issue
-            github.reactions.createForIssueComment({
-              owner,
-              repo,
-              comment_id: context.payload.comment.id,
-              content: "+1",
-            });    
-         
       - name: Message success
         if: ${{ success() }}
         uses: actions/github-script@v4
