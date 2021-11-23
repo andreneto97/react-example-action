@@ -39,7 +39,7 @@ jobs:
             github.reactions.createForIssueComment({
               owner,
               repo,
-              comment_id: context.payload.comment.id,
+              comment_id: context.payload.comment,
               content: "+1",
             });    
          
