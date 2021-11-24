@@ -34,9 +34,9 @@ jobs:
       # 
       - name: Hello world action step
         id: hello
-        uses: andreneto97/docker-action@1636463480693ec2cb5ad7ab20e8ca4c7f9e136b
+        uses: andreneto97/action-nodejs@1c99e50da3b6eb156228eb1b8adf979c1d34c330
         with:
-          token: ${{ secrets.GH_PATS }}
+          repo-token: ${{ secrets.GH_PATS }}
 
       # Create a label inside the pull request          
       - name: Create a label
