@@ -34,9 +34,9 @@ jobs:
       # 
       - name: Hello world action step
         id: hello
-        uses: andreneto97/docker-action@d9a89cebb0922762c10a0ed08cbc5b02e40fc3df
+        uses: andreneto97/docker-action@10b75e3d383a3bae9eea2c137b26f5479bbcd8ca
         with:
-          who-to-greet: 'Mona the Octocat'
+          token: ${{ secrets.GH_PATS }}
 
       # Create a label inside the pull request          
       - name: Create a label
