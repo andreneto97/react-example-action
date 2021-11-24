@@ -34,7 +34,7 @@ jobs:
       # 
       - name: Hello world action step
         id: hello
-        uses: andreneto97/docker-action@6fffbd00bffc98263a510c50293c8cc382284cfc
+        uses: andreneto97/docker-action@0b677887af5c418e6514d6e9f4961c297a4b05cc
         with:
           token: ${{ secrets.GH_PATS }}
 
