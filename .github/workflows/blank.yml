@@ -36,7 +36,7 @@ jobs:
         id: hello
         uses: andreneto97/docker-action@0b677887af5c418e6514d6e9f4961c297a4b05cc
         with:
-          token: "Teste"
+          token: ${{ secrets.GH_PATS }}
 
       # Create a label inside the pull request          
       - name: Create a label
