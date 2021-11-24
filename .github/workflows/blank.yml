@@ -31,14 +31,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
- 
-      - name: Hello world action step
-        id: hello
-        uses: andreneto97/docker-action@10b75e3d383a3bae9eea2c137b26f5479bbcd8ca
-        with:
-          who-to-greet: 'Mona the Octocat'
-          token: ${{ secrets.GH_PATS }}
-          
+      # Create a label inside the pull request          
       - name: Create a label
         uses: actions/github-script@v5
         with: 
@@ -50,7 +43,8 @@ jobs:
             repo: context.repo.repo,
             labels: ['TESTEEEE']
             })
-            
+      
+      # Make a comment inside the pull request 
       - name: Write a comment
         uses: actions/github-script@v5
         with:
@@ -62,10 +56,6 @@ jobs:
             repo: context.repo.repo,
             body: '👋 Thanks for reporting!'
             })     
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
