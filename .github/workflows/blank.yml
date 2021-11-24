@@ -30,6 +30,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
         uses: actions/checkout@v2
+      
+      # 
+      - name: Hello world action step
+        id: hello
+        uses: andreneto97/docker-action@d9a89cebb0922762c10a0ed08cbc5b02e40fc3df
+        with:
+          who-to-greet: 'Mona the Octocat'
 
       # Create a label inside the pull request          
       - name: Create a label
