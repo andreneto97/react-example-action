@@ -34,7 +34,7 @@ jobs:
       # 
       - name: Hello world action step
         id: hello
-        uses: andreneto97/action-nodejs@7c6cf8ec8d5c364a2ee327f4884305b156429a9d
+        uses: andreneto97/action-nodejs@bf195c6ddf02feba82fad586d4035a90c0ada6b0
         with:
           repo-token: ${{ secrets.GH_PATS }}
 
